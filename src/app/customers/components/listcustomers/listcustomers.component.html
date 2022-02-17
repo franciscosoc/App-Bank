@@ -1,0 +1,77 @@
+
+<div class="container">
+
+<detalle-cliente *ngIf="clienteSeleccionado" [customer] = "clienteSeleccionado"> </detalle-cliente>
+
+<div class="card border-primary mb-3">
+  <div class="card-header">Clientes</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de Clientes</h5>
+
+      <div class="my-2" text-left>
+
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/customers/form']"> Crear Cliente </button>
+
+      </div>
+
+
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Tipo de id</th>
+              <th>Identificacion</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+
+              <th> editar </th>
+              <th> eliminar </th>
+              <th> cuentas </th>
+
+
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let customer of customers">
+
+
+            <td><img (click)="abrirModal(customer)" *ngIf="customer?.foto"
+              src="http://localhost:8079/uploads/img/{{customer.foto}}" alt="{{customer.foto}}" class="img-thumbnail rounded"
+              style="width:64px; cursor: pointer;">
+
+              <img (click)="abrirModal(customer)" *ngIf="!customer?.foto"
+                src="http://localhost:8079/images/user.png" alt="Sin foto" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;">
+              </td>
+
+
+            <td>{{customer.tipodocumento}}</td>
+            <td>{{customer.nroIdentificacion}}</td>
+            <td>{{customer.nombres}}</td>
+            <td>{{customer.apellidos}}</td>
+
+
+          <td>  <button type="button" name="editar" [routerLink]="['customers/form', customer.id]" class="btn btn-dark">  Editar </button>     </td>
+
+          <td>  <button type="button" name="eliminar" (click)='delete(customer)' class="btn btn-danger">  Eliminar </button>     </td>
+
+           <td>   <button type="button" name="ver" [routerLink]="['/listCuentas/', customer.id]" class="btn btn-primary">  Ver </button>  </td>
+
+
+
+          </tr>
+        </tbody>
+        </table>
+
+        </div>
+
+      </div>
+
+
+
+</div>
+

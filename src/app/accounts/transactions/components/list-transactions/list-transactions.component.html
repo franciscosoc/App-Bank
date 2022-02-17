@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="card border-primary mb-3">
+    <div class="card-header">Listado</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Transacciones</h5>
+
+        <div class="my-2" text-left>
+
+          <button class="btn btn-rounded btn-primary" type="button" (click)="volver()"  > Volver </button>
+
+        </div>
+
+
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+
+
+                <th>Importe</th>
+                <th>fecha Movimiento</th>
+                <th>Tipo Movimiento</th>
+                <th>Tipo Operacion</th>
+
+
+
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let transaction of transactions">
+
+              <td>{{transaction.importe}}</td>
+              <td>{{transaction.fechaMovimiento}}</td>
+              <td>{{ transaction.tipoMovimiento}}</td>
+              <td>{{transaction.tipoOperacion}}</td>
+
+
+
+            </tr>
+          </tbody>
+          </table>
+
+          </div>
+
+        </div>
+
+
+
+  </div>
+
+

@@ -1,0 +1,73 @@
+<div class="container">
+
+  <div class="card border-primary mb-3">
+    <div class="card-header">Clientes</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de Cuentas</h5>
+
+        <div class="my-2" text-left>
+
+          <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/createCuentas/', clienteId  ]" > Crear Cuenta </button>
+
+        </div>
+
+
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+
+
+                <th>Numero de cuenta</th>
+                <th>fecha Apertura</th>
+                <th>Tipo Cuenta</th>
+                <th>Estado</th>
+                <th>saldo</th>
+
+              <!--   <th>Email</th>
+                <th>fechaNacimiento</th> -->
+                <th> detalles </th>
+                <th> consignar </th>
+                <th> retirar </th>
+                <th> transferir </th>
+
+
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let account of accounts">
+
+
+              <td>{{account.numeroCuenta}}</td>
+              <td>{{account.fechaApertura}}</td>
+              <td>{{account.tipoCuenta}}</td>
+              <td>{{account.estado}}</td>
+              <td>{{account.saldo}}</td>
+
+            <td>  <button type="button" name="consignar" [routerLink]="['listTransactions', account.id]" class="btn btn-secondary">  Movimientos </button>     </td>
+
+
+            <td>  <button type="button" name="consignar" [routerLink]="['listTransactions', account.id, 'consignar' ]"  class="btn btn-secondary">  Consignar </button>     </td>
+
+             <td>   <button type="button" name="retirar" [routerLink]="['listTransactions', account.id, 'retirar' ]" class="btn btn-primary">  Retirar </button>  </td>
+
+
+             <td>   <button type="button" name="transferir" [routerLink]="['listTransactions', account.id, 'transferir' ]" class="btn btn-danger">  Transferir </button>  </td>
+
+
+
+            </tr>
+          </tbody>
+          </table>
+
+          </div>
+
+        </div>
+
+
+
+  </div>
+
+

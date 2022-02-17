@@ -1,0 +1,88 @@
+
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+
+    <form>
+
+      <div class="form-group row">
+        <label for="tipo-documento" class="col-form-label col-sm-2"> Tipo Documento</label>
+          <div class="col-sm-6">
+
+          <select name="tipo-documento" class="form-select" [(ngModel)]="customer.tipodocumento"
+          [compareWith]="comparar"
+          > <!-- <option value="Ahorro"> Ahorro</option>
+            <option value="Corriente"> Corriente</option> -->
+            <option *ngFor="let dato of datosIdentificacion"
+            [ngValue]="dato">   {{dato}}</option>
+
+
+          </select>
+          <!-- {{customer.tipodocumento}} -->
+        </div>
+      </div>
+
+     <!--  <div class="form-group row">
+        <label for="tipodocumento" class="col-form-label col-sm-2">Tipoid</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="customer.tipodocumento" name="Tipoid">
+        </div>
+      </div> -->
+
+
+      <div class="form-group row">
+        <label for="nroIdentificacion" class="col-form-label col-sm-2">Identificacion</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="customer.nroIdentificacion" name="nroIdentificacion">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombres</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="customer.nombres" name="nombre">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="apellido" class="col-form-label col-sm-2">Apellidos</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="customer.apellidos" name="apellido">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-form-label col-sm-2">Email</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="customer.email" name="email">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="fechanacimiento" class="col-form-label col-sm-2">Fecha Nacimiento</label>
+        <div class="col-sm-6">
+          <input type="date" class="form-control" [(ngModel)]="customer.fechaNacimiento" name="fechaapertura">
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button  class="btn btn-primary"  role="button" (click)='create() ' *ngIf="!customer.id else elseBlock">Crear</button>
+
+
+
+          <ng-template #elseBlock>
+
+            <button class="btn btn-primary" role="button" (click)='update()' >Editar</button>
+
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

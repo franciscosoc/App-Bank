@@ -1,0 +1,49 @@
+<div class="container">
+
+
+  <div class="card bg-dark text-white">
+    <div class="card-header"> Transferir </div>
+    <div class="card-body">
+
+      <form>
+
+        <div class="form-group row">
+          <label for="importe" class="col-form-label col-sm-2"> Monto </label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="transaction.importe" name="importe">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="cuenta-select" class="col-form-label col-sm-2"> Cuenta Destino</label>
+          <div class="col-sm-6">
+          <select name="cuenta-select" class="form-control" [(ngModel)]="transaction.cuentaDestino">
+            <!-- <option  value="0">   Seleccione una opcción </option> -->
+            <option  *ngFor="let account of accounts" [ngValue]="account.id">
+              {{account.numeroCuenta }} - {{account.tipoCuenta}} </option>
+
+          </select>
+        </div>
+
+        </div>
+
+
+
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-primary" (click)="transferir()">  transferir </button>
+          </div>
+        </div>
+      </form>
+      <button  class="btn btn-primary mt-2" (click)="volver()">  Volver </button>
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+
